@@ -6,23 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "assetDescriptionInput",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "minBidPriceInput",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "minNumberOfBiddersInput",
-						"type": "uint256"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -64,6 +48,36 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "assetDescriptionInput",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minBidPriceInput",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minNumberOfBiddersInput",
+						"type": "uint256"
+					}
+				],
+				"name": "registerAuctionInfo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "registerBidder",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -94,10 +108,10 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x8a0e3d855c2c10ecad6804df17da0e9d3cd2c22ec6e44ae332396c4966dec983",
+			"keccak256": "0xe6ed6a7b403fc420e64358194b0440d71ddf5faf679911da0c0a55442f1aab81",
 			"urls": [
-				"bzz-raw://c11a5870bb861880b7acdd66077e163a3ca8d70e7e047ee9771941770f95b7c8",
-				"dweb:/ipfs/QmQKptkodECTazFw785GFubCeGyij7yHxC2kUN59mGxuR9"
+				"bzz-raw://b8285e33aa0f5204aee7a14cb43492db233f352a00febdeb6affb86b657fbccf",
+				"dweb:/ipfs/QmWVDB1KdnLH4Uq8yyvk4JvkAe1C2uu79QErKioHdfUMTQ"
 			]
 		}
 	},

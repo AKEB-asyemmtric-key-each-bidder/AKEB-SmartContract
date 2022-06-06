@@ -7,12 +7,29 @@ contract AKEB {
     uint256 public minBidPrice;
     uint256 public minNumberOfBidders;
 
-    constructor(string memory assetDescriptionInput, 
-    uint256 minBidPriceInput, uint256 minNumberOfBiddersInput)
+    constructor()
     {
         auctioneer = msg.sender;
+    }
+
+    modifier checkAuctioneer() {
+        require(msg.sender == auctioneer, "Only auctioneer can call this function.");_;
+    }
+
+    modifier noAuctioneerInBidderRegistering() {
+        require(msg.sender != auctioneer, "Auctioneer is not allowed to register as a bidder");_;
+    }
+
+    function registerAuctionInfo(string memory assetDescriptionInput, 
+    uint256 minBidPriceInput, uint256 minNumberOfBiddersInput) 
+    public checkAuctioneer()
+    {
         assetDescription = assetDescriptionInput;
         minBidPrice = minBidPriceInput;
         minNumberOfBidders = minNumberOfBiddersInput;
+    }
+
+    function registerBidder() public noAuctioneerInBidderRegistering() {
+        bidders.push(msg.sender);
     }
 }
