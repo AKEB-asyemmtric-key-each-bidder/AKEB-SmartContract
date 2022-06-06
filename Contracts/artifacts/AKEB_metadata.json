@@ -1,0 +1,105 @@
+{
+	"compiler": {
+		"version": "0.8.14+commit.80d49f37"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "assetDescriptionInput",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minBidPriceInput",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minNumberOfBiddersInput",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "assetDescription",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "minBidPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "minNumberOfBidders",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contracts/AKEB.sol": "AKEB"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Contracts/AKEB.sol": {
+			"keccak256": "0x8a0e3d855c2c10ecad6804df17da0e9d3cd2c22ec6e44ae332396c4966dec983",
+			"urls": [
+				"bzz-raw://c11a5870bb861880b7acdd66077e163a3ca8d70e7e047ee9771941770f95b7c8",
+				"dweb:/ipfs/QmQKptkodECTazFw785GFubCeGyij7yHxC2kUN59mGxuR9"
+			]
+		}
+	},
+	"version": 1
+}
