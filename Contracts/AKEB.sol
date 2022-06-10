@@ -7,7 +7,9 @@ contract AKEB {
     string public assetDescription;
     uint256 public minBidPrice;
     uint256 public minNumberOfBidders;
+
     mapping(address => string) public publicKeys;
+    mapping(address => string) public encryptedBids;
 
     constructor()
     {
@@ -43,5 +45,10 @@ contract AKEB {
     returns(string memory)
     {
         return publicKeys[msg.sender];
+    }
+
+    function submitEncryptedBid(string memory inputEncryptedBid)
+    public assertOnlyBidders(){
+        encryptedBids[msg.sender] = inputEncryptedBid;
     }
 }

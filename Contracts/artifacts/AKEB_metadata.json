@@ -43,6 +43,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "encryptedBids",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "getMyPublicKey",
 				"outputs": [
@@ -133,6 +152,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "inputEncryptedBid",
+						"type": "string"
+					}
+				],
+				"name": "submitEncryptedBid",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "inputAddress",
 						"type": "address"
@@ -177,11 +209,11 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x39faeebcaa89de85ef97dc1ae1d091a71f911b488ca1e361d4a9353ae93dffdd",
+			"keccak256": "0x9d2a3def3534871d231ed2ed57c7ab6d9b7a0f72aba4c9084a3af7e3a1e9356f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1dc98035eed7bafe1825b58b49405e9c1635f0a4e8da238e31fa0167e58d18b2",
-				"dweb:/ipfs/QmZTuBZ2TkdRwn2pYtNbL3kwfEwrk1DHvq2nYbpehwXVGn"
+				"bzz-raw://486ad65911accfe6d31d0457489c91570bee4cda86dbba12b46414f5fd36b1c8",
+				"dweb:/ipfs/QmYeYFouFMw5fnaT4aLEEeJ2Ee7dPRGkDGyXQrUhKD27oN"
 			]
 		}
 	},
