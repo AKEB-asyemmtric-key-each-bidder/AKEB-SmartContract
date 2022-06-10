@@ -14,24 +14,24 @@ contract AKEB {
         auctioneer = msg.sender;
     }
 
-    modifier checkAuctioneer() {
+    modifier assertOnlyAuctioneer() {
         require(msg.sender == auctioneer, "Only auctioneer can call this function.");_;
     }
 
-    modifier noAuctioneerInBiddersActivities() {
+    modifier assertOnlyBidders() {
         require(msg.sender != auctioneer, "Auctioneer is not allowed to register as a bidder");_;
     }
 
     function registerAuctionInfo(string memory assetDescriptionInput, 
     uint256 minBidPriceInput, uint256 minNumberOfBiddersInput) 
-    public checkAuctioneer()
+    public assertOnlyAuctioneer()
     {
         assetDescription = assetDescriptionInput;
         minBidPrice = minBidPriceInput;
         minNumberOfBidders = minNumberOfBiddersInput;
     }
 
-    function registerBidder() public noAuctioneerInBiddersActivities() {
+    function registerBidder() public assertOnlyBidders() {
         bidders.push(msg.sender);
     }
 
@@ -39,7 +39,7 @@ contract AKEB {
         publicKeys[inputAddress] = inputPublicKey;
     }
 
-    function getMyPublicKey() public view noAuctioneerInBiddersActivities() 
+    function getMyPublicKey() public view assertOnlyBidders() 
     returns(string memory)
     {
         return publicKeys[msg.sender];
