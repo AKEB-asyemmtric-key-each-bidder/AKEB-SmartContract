@@ -44,6 +44,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "getMyPublicKey",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "minBidPrice",
 				"outputs": [
 					{
@@ -164,11 +177,11 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x4dc56782bcec1a9ccafa9ea661c6a2e0e6c00d4127567b27eca2439e7b881d75",
+			"keccak256": "0x23f0d1ce07832614de26feb725783cd10414d9a79628711c83e9e81c0b4fc4ff",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://03b861d12e21f417238944fa999642e97368368c571762885e1aa9c7582712b0",
-				"dweb:/ipfs/QmdYedAckfmNYe9Qp5SmLEmSB7d1RgLwPmxUXBq66fQAmr"
+				"bzz-raw://35357b77e4c7ba8ab6eb362698084f0e2f5baec55452b657b7d950f1c48fa60f",
+				"dweb:/ipfs/QmaDGQmqZee8K1wZxsKX3KRwzZh49uEZPtMc1b4oBARUJN"
 			]
 		}
 	},

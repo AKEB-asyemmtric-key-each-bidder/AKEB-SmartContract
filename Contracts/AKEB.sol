@@ -18,7 +18,7 @@ contract AKEB {
         require(msg.sender == auctioneer, "Only auctioneer can call this function.");_;
     }
 
-    modifier noAuctioneerInBidderRegistering() {
+    modifier noAuctioneerInBiddersActivities() {
         require(msg.sender != auctioneer, "Auctioneer is not allowed to register as a bidder");_;
     }
 
@@ -31,11 +31,17 @@ contract AKEB {
         minNumberOfBidders = minNumberOfBiddersInput;
     }
 
-    function registerBidder() public noAuctioneerInBidderRegistering() {
+    function registerBidder() public noAuctioneerInBiddersActivities() {
         bidders.push(msg.sender);
     }
 
     function submitPublicKeys(address inputAddress, string memory inputPublicKey) public{
         publicKeys[inputAddress] = inputPublicKey;
+    }
+
+    function getMyPublicKey() public view noAuctioneerInBiddersActivities() 
+    returns(string memory)
+    {
+        return publicKeys[msg.sender];
     }
 }
