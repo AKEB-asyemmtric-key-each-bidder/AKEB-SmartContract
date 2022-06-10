@@ -127,10 +127,11 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x47d92cd4a838c26f170b138779358bbfb903fa000fd9cc39f73a0561b9ac1fad",
+			"keccak256": "0x59077b8e796750685fc3d72377c98b82612fbda3d27604fa0ab9ea9bef6fa90b",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://44e857abb59aa382479c9d49149f51db62b73b62f0dc1d4cc177b000268a34b6",
-				"dweb:/ipfs/QmNfhwzMX5TgBdtfPButYYUQW5WTvyukuDoLyEAZ7k9bpq"
+				"bzz-raw://e0ba3224ff588be9e3fd35cdacbdd00cdeb35636a15120ad5626534f5519b9b6",
+				"dweb:/ipfs/QmcugSGuj5sN8SNpJ2MwspoiPW5mJurydGGe165CutMhv2"
 			]
 		}
 	},
