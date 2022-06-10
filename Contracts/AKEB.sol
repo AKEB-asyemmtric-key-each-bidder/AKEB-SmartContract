@@ -7,6 +7,7 @@ contract AKEB {
     string public assetDescription;
     uint256 public minBidPrice;
     uint256 public minNumberOfBidders;
+    mapping(address => string) public publicKeys;
 
     constructor()
     {
@@ -32,5 +33,9 @@ contract AKEB {
 
     function registerBidder() public noAuctioneerInBidderRegistering() {
         bidders.push(msg.sender);
+    }
+
+    function submitPublicKeys(address inputAddress, string memory inputPublicKey) public{
+        publicKeys[inputAddress] = inputPublicKey;
     }
 }
