@@ -11,6 +11,10 @@ contract AKEB {
     mapping(address => string) public publicKeys;
     mapping(address => string) public encryptedBids;
 
+    address public winnerAddress;
+    uint256 public winnerBid;
+    string public winnerPrivateKey;
+
     constructor()
     {
         auctioneer = msg.sender;
@@ -50,5 +54,12 @@ contract AKEB {
     function submitEncryptedBid(string memory inputEncryptedBid)
     public assertOnlyBidders(){
         encryptedBids[msg.sender] = inputEncryptedBid;
+    }
+
+    function submitWinner(address inputWinnerAddress, uint256 inputWinnerBid, 
+    string memory inputWinnerPrivateKey) public{
+        winnerAddress = inputWinnerAddress;
+        winnerBid = inputWinnerBid;
+        winnerPrivateKey = inputWinnerPrivateKey;
     }
 }

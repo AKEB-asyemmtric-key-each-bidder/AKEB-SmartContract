@@ -179,6 +179,68 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "inputWinnerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "inputWinnerBid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "inputWinnerPrivateKey",
+						"type": "string"
+					}
+				],
+				"name": "submitWinner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "winnerAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "winnerBid",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "winnerPrivateKey",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -209,11 +271,11 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x9d2a3def3534871d231ed2ed57c7ab6d9b7a0f72aba4c9084a3af7e3a1e9356f",
+			"keccak256": "0xaa141413b2dbcaa4db135255d0ea7b55bfbb891bf15e9a073ac0f8b1e8468da3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://486ad65911accfe6d31d0457489c91570bee4cda86dbba12b46414f5fd36b1c8",
-				"dweb:/ipfs/QmYeYFouFMw5fnaT4aLEEeJ2Ee7dPRGkDGyXQrUhKD27oN"
+				"bzz-raw://c44d2be52020240ef86efa4228402e1dd6657cd45988d449be344c2f6befd436",
+				"dweb:/ipfs/QmR9ACUbXXApFRkXgW7HbEAJWYbN68XXRb8Z5nggAzPjY2"
 			]
 		}
 	},
