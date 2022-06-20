@@ -15,6 +15,14 @@ contract AKEB {
     uint256 public winnerBid;
     string public winnerPrivateKey;
 
+    struct DisputedBidders {
+        uint256 bid;
+        address disputeAddress;
+        string privateKey;
+    }
+
+    DisputedBidders[] public disputedBidders;
+
     constructor()
     {
         auctioneer = msg.sender;
@@ -61,5 +69,16 @@ contract AKEB {
         winnerAddress = inputWinnerAddress;
         winnerBid = inputWinnerBid;
         winnerPrivateKey = inputWinnerPrivateKey;
+    }
+
+    function dispute(uint256 inputDisputedBid, address inputDisputedAddress, 
+    string memory inputDisputedPrivateKey) public {
+        DisputedBidders memory disputedBidder = DisputedBidders(
+            inputDisputedBid,
+            inputDisputedAddress,
+            inputDisputedPrivateKey
+        );
+
+        disputedBidders.push(disputedBidder);
     }
 }
