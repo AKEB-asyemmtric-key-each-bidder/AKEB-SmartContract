@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.14;
 
-
-
 contract AKEB {
     address auctioneer;
     address[] public bidders;
@@ -10,25 +8,19 @@ contract AKEB {
     uint256 public minBidPrice;
     uint256 public minNumberOfBidders;
 
-    mapping(address => string) public publicKeys;
-    mapping(address => string) public encryptedBids;
+    mapping(address => string) public encodedBids;
 
     address public winnerAddress;
     uint256 public winnerBid;
-    string public winnerPrivateKey;
+    string public winnerKey;
 
     struct DisputedBidders {
         uint256 bid;
         address disputeAddress;
-        string privateKey;
+        string key;
     }
 
     DisputedBidders[] public disputedBidders;
-
-    constructor()
-    {
-        auctioneer = msg.sender;
-    }
 
     modifier assertOnlyAuctioneer() {
         require(msg.sender == auctioneer, "Only auctioneer can call this function.");_;
@@ -36,6 +28,10 @@ contract AKEB {
 
     modifier assertOnlyBidders() {
         require(msg.sender != auctioneer, "Auctioneer is not allowed to register as a bidder");_;
+    }
+
+    function getSampleString() public pure returns(string memory){
+        return "sample string from AKEB";
     }
 
     function registerAuctionInfo(string memory assetDescriptionInput, 
@@ -47,38 +43,48 @@ contract AKEB {
         minNumberOfBidders = minNumberOfBiddersInput;
     }
 
-    function registerBidder() public assertOnlyBidders() {
+    function registerBidder() public {
         bidders.push(msg.sender);
     }
 
-    function submitPublicKeys(address inputAddress, string memory inputPublicKey) public{
-        publicKeys[inputAddress] = inputPublicKey;
+    function getBidderAddress(uint index) public view returns(address) {
+        return bidders[index];
     }
 
-    function getMyPublicKey() public view assertOnlyBidders() 
-    returns(string memory)
-    {
-        return publicKeys[msg.sender];
+    function submitEncryptedBid(string memory inputEncodedBid)
+    public {
+        encodedBids[msg.sender] = inputEncodedBid;
     }
 
-    function submitEncryptedBid(string memory inputEncryptedBid)
-    public assertOnlyBidders(){
-        encryptedBids[msg.sender] = inputEncryptedBid;
+    function getEncodedBid(address inputAddress) public view returns(string memory){
+        return encodedBids[inputAddress];
     }
 
-    function submitWinner(address inputWinnerAddress, uint256 inputWinnerBid, 
-    string memory inputWinnerPrivateKey) public{
-        winnerAddress = inputWinnerAddress;
+    function submitWinner(uint256 inputWinnerBid, 
+    string memory inputWinnerKey) public{
+        winnerAddress = msg.sender;
         winnerBid = inputWinnerBid;
-        winnerPrivateKey = inputWinnerPrivateKey;
+        winnerKey = inputWinnerKey;
     }
 
-    function dispute(uint256 inputDisputedBid, address inputDisputedAddress, 
-    string memory inputDisputedPrivateKey) public {
+    function getWinnerAddress() public view returns(address) {
+        return winnerAddress;
+    }
+
+    function getWinnerBid() public view returns(uint256) {
+        return winnerBid;
+    }
+
+    function getWinnerKey() public view returns(string memory){
+        return winnerKey;
+    }
+
+    function dispute(uint256 inputDisputedBid, 
+    string memory inputDisputedKey) public {
         DisputedBidders memory disputedBidder = DisputedBidders(
             inputDisputedBid,
-            inputDisputedAddress,
-            inputDisputedPrivateKey
+            msg.sender,
+            inputDisputedKey
         );
 
         disputedBidders.push(disputedBidder);

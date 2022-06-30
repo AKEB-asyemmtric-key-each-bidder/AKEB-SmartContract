@@ -7,11 +7,6 @@
 		"abi": [
 			{
 				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
 				"name": "assetDescription",
 				"outputs": [
 					{
@@ -50,13 +45,8 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "address",
-						"name": "inputDisputedAddress",
-						"type": "address"
-					},
-					{
 						"internalType": "string",
-						"name": "inputDisputedPrivateKey",
+						"name": "inputDisputedKey",
 						"type": "string"
 					}
 				],
@@ -87,7 +77,7 @@
 					},
 					{
 						"internalType": "string",
-						"name": "privateKey",
+						"name": "key",
 						"type": "string"
 					}
 				],
@@ -102,7 +92,45 @@
 						"type": "address"
 					}
 				],
-				"name": "encryptedBids",
+				"name": "encodedBids",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getBidderAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "inputAddress",
+						"type": "address"
+					}
+				],
+				"name": "getEncodedBid",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -115,7 +143,46 @@
 			},
 			{
 				"inputs": [],
-				"name": "getMyPublicKey",
+				"name": "getSampleString",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getWinnerAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getWinnerBid",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getWinnerKey",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -155,25 +222,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "publicKeys",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "string",
 						"name": "assetDescriptionInput",
 						"type": "string"
@@ -205,7 +253,7 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "inputEncryptedBid",
+						"name": "inputEncodedBid",
 						"type": "string"
 					}
 				],
@@ -217,36 +265,13 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "inputAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "inputPublicKey",
-						"type": "string"
-					}
-				],
-				"name": "submitPublicKeys",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "inputWinnerAddress",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
 						"name": "inputWinnerBid",
 						"type": "uint256"
 					},
 					{
 						"internalType": "string",
-						"name": "inputWinnerPrivateKey",
+						"name": "inputWinnerKey",
 						"type": "string"
 					}
 				],
@@ -283,7 +308,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "winnerPrivateKey",
+				"name": "winnerKey",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -323,11 +348,11 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0xc371dd57ab6d94f0bf95f26f34935df1dff2139dc9dc68b7857ff41becbc906c",
+			"keccak256": "0x365fa5f01d085755b62d8cc4f751b81eae1c20dbf65475e5a7d4d601efa0ca77",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3c50600c04b1fc887c0c54acdc51f88e6c413da4cdfff90e87924aa6bdd1503c",
-				"dweb:/ipfs/Qmd4Pfyu7VbyfxBfmvGdVm3o3kywsYWpe3EK3ooCP6M87g"
+				"bzz-raw://b9768757940339037d93727edd47ea74311ca01ccd86ca913c7014b21c453ccb",
+				"dweb:/ipfs/QmRFS91PVTVuqREnUMnBsnJDUN9PuWTxnYaUV9oUWHZFUh"
 			]
 		}
 	},
