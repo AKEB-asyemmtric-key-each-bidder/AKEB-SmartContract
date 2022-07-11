@@ -250,6 +250,20 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "reset",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "resetEncodedBids",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -348,11 +362,11 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x365fa5f01d085755b62d8cc4f751b81eae1c20dbf65475e5a7d4d601efa0ca77",
+			"keccak256": "0x8996b6e71ef47784fffb70ba1cbefb2bd76f1f8b1b79781e1dd473e083259726",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b9768757940339037d93727edd47ea74311ca01ccd86ca913c7014b21c453ccb",
-				"dweb:/ipfs/QmRFS91PVTVuqREnUMnBsnJDUN9PuWTxnYaUV9oUWHZFUh"
+				"bzz-raw://b2d82cb2401dc3336f017f00c17d8ebc57b434245bfe66821a47e12156e2003e",
+				"dweb:/ipfs/QmaKhoqx3EFbZz3txBquUbiN8pgtUZLhmoeWEN2oH4Xt1g"
 			]
 		}
 	},

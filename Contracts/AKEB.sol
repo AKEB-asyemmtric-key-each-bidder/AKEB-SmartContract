@@ -89,4 +89,27 @@ contract AKEB {
 
         disputedBidders.push(disputedBidder);
     }
+
+    function reset() public {
+        winnerAddress =  0x0000000000000000000000000000000000000000;
+        winnerBid = 0;
+        winnerKey = "";
+
+        assetDescription = "";
+        minBidPrice = 0;
+        minNumberOfBidders = 0;
+
+        resetEncodedBids();
+        
+        delete bidders;
+
+        delete disputedBidders;
+    }
+
+    function resetEncodedBids() public {
+        for (uint256 i = 0 ; i < bidders.length; i +=1){
+            address bidderAddress = bidders[i];
+            delete encodedBids[bidderAddress];
+        }
+    }
 }
