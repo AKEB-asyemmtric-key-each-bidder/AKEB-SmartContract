@@ -10,14 +10,18 @@ contract AKEB {
 
     mapping(address => string) public encodedBids;
 
-    address public winnerAddress;
-    uint256 public winnerBid;
-    string public winnerKey;
+    struct winner {
+        address winnerAddress;
+        uint256 bid;
+        string nonce;
+    }
+
+    winner[] public winners;
 
     struct DisputedBidders {
         uint256 bid;
         address disputeAddress;
-        string key;
+        string nonce;
     }
 
     DisputedBidders[] public disputedBidders;
@@ -51,7 +55,15 @@ contract AKEB {
         return bidders[index];
     }
 
-    function submitEncryptedBid(string memory inputEncodedBid)
+    function getAllBidders() public view returns(address[] memory) {
+        return bidders;
+    }
+
+    function getAllDisputers() public view returns(DisputedBidders[] memory){
+        return disputedBidders;
+    }
+
+    function submitEncodedBid(string memory inputEncodedBid)
     public {
         encodedBids[msg.sender] = inputEncodedBid;
     }
@@ -61,46 +73,52 @@ contract AKEB {
     }
 
     function submitWinner(uint256 inputWinnerBid, 
-    string memory inputWinnerKey) public{
-        winnerAddress = msg.sender;
-        winnerBid = inputWinnerBid;
-        winnerKey = inputWinnerKey;
+    string memory inputwinnerNonce) public{
+        winner memory temp = winner(msg.sender, inputWinnerBid, inputwinnerNonce);
+
+        winners.push(temp);
     }
 
-    function getWinnerAddress() public view returns(address) {
-        return winnerAddress;
+    function getAllWinners() public view returns(winner[] memory) {
+        return winners;
     }
 
-    function getWinnerBid() public view returns(uint256) {
-        return winnerBid;
-    }
+    // function getWinner() public view returns(address, uint256, string memory) {
+    //     return (winnerAddress, winnerBid, winnerNonce);
+    // }
 
-    function getWinnerKey() public view returns(string memory){
-        return winnerKey;
-    }
+    // function getWinnerAddress() public view returns(address) {
+    //     return winnerAddress;
+    // }
+
+    // function getWinnerBid() public view returns(uint256) {
+    //     return winnerBid;
+    // }
+
+    // function getwinnerNonce() public view returns(string memory){
+    //     return winnerNonce;
+    // }
 
     function dispute(uint256 inputDisputedBid, 
-    string memory inputDisputedKey) public {
+    string memory inputDisputedNonce) public {
         DisputedBidders memory disputedBidder = DisputedBidders(
             inputDisputedBid,
             msg.sender,
-            inputDisputedKey
+            inputDisputedNonce
         );
 
         disputedBidders.push(disputedBidder);
     }
 
     function reset() public {
-        winnerAddress =  0x0000000000000000000000000000000000000000;
-        winnerBid = 0;
-        winnerKey = "";
+        delete winners;
 
         assetDescription = "";
         minBidPrice = 0;
         minNumberOfBidders = 0;
 
         resetEncodedBids();
-        
+
         delete bidders;
 
         delete disputedBidders;

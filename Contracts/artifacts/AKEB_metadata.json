@@ -46,7 +46,7 @@
 					},
 					{
 						"internalType": "string",
-						"name": "inputDisputedKey",
+						"name": "inputDisputedNonce",
 						"type": "string"
 					}
 				],
@@ -77,7 +77,7 @@
 					},
 					{
 						"internalType": "string",
-						"name": "key",
+						"name": "nonce",
 						"type": "string"
 					}
 				],
@@ -98,6 +98,79 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllBidders",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllDisputers",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "bid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "disputeAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nonce",
+								"type": "string"
+							}
+						],
+						"internalType": "struct AKEB.DisputedBidders[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllWinners",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "winnerAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "nonce",
+								"type": "string"
+							}
+						],
+						"internalType": "struct AKEB.winner[]",
+						"name": "",
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -152,45 +225,6 @@
 					}
 				],
 				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getWinnerAddress",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getWinnerBid",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getWinnerKey",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -271,7 +305,7 @@
 						"type": "string"
 					}
 				],
-				"name": "submitEncryptedBid",
+				"name": "submitEncodedBid",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -285,7 +319,7 @@
 					},
 					{
 						"internalType": "string",
-						"name": "inputWinnerKey",
+						"name": "inputwinnerNonce",
 						"type": "string"
 					}
 				],
@@ -295,38 +329,28 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "winnerAddress",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "winnerBid",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "winnerKey",
+				"name": "winners",
 				"outputs": [
 					{
+						"internalType": "address",
+						"name": "winnerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bid",
+						"type": "uint256"
+					},
+					{
 						"internalType": "string",
-						"name": "",
+						"name": "nonce",
 						"type": "string"
 					}
 				],
@@ -362,11 +386,11 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x8996b6e71ef47784fffb70ba1cbefb2bd76f1f8b1b79781e1dd473e083259726",
+			"keccak256": "0xeab4fae1738d32f4ee64a77495a8ecf445d42dc7197a83c332a78be97f070038",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b2d82cb2401dc3336f017f00c17d8ebc57b434245bfe66821a47e12156e2003e",
-				"dweb:/ipfs/QmaKhoqx3EFbZz3txBquUbiN8pgtUZLhmoeWEN2oH4Xt1g"
+				"bzz-raw://3693dd71246f41a2d73c51a4838f7883f4dbba097b3b63bbb3e13885e284398f",
+				"dweb:/ipfs/QmRoH9qH3zCEUCe3uoV2anWym5dyca6udEQQ1XcvRHDbsh"
 			]
 		}
 	},
