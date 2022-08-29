@@ -19,6 +19,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "assetName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -177,6 +190,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "getAuctionInfo",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -215,60 +246,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getSampleString",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "string",
-						"name": "",
+						"name": "assetNameInput",
 						"type": "string"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "minBidPrice",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "minNumberOfBidders",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
+					},
 					{
 						"internalType": "string",
 						"name": "assetDescriptionInput",
 						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "minBidPriceInput",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "minNumberOfBiddersInput",
-						"type": "uint256"
 					}
 				],
 				"name": "registerAuctionInfo",
@@ -386,11 +373,11 @@
 	},
 	"sources": {
 		"Contracts/AKEB.sol": {
-			"keccak256": "0xeab4fae1738d32f4ee64a77495a8ecf445d42dc7197a83c332a78be97f070038",
+			"keccak256": "0xf80066bc369628413254c671f160f36a2cdd856eea637ba86bb4bb709e714bf4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3693dd71246f41a2d73c51a4838f7883f4dbba097b3b63bbb3e13885e284398f",
-				"dweb:/ipfs/QmRoH9qH3zCEUCe3uoV2anWym5dyca6udEQQ1XcvRHDbsh"
+				"bzz-raw://cafa6df11a355d875fa7e6a1857009a82a6ce6dac32d462a461d0dc119be2e2f",
+				"dweb:/ipfs/QmTgpdb6b4zG65nHyApzg2Cdr4gokJgPKrULGNJEF6wa6p"
 			]
 		}
 	},

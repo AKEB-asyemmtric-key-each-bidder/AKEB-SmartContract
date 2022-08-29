@@ -2,11 +2,11 @@
 pragma solidity ^0.8.14;
 
 contract AKEB {
-    address auctioneer;
-    address[] public bidders;
+    address seller;
     string public assetDescription;
-    uint256 public minBidPrice;
-    uint256 public minNumberOfBidders;
+    string public assetName;
+
+    address[] public bidders;
 
     mapping(address => string) public encodedBids;
 
@@ -27,24 +27,22 @@ contract AKEB {
     DisputedBidders[] public disputedBidders;
 
     modifier assertOnlyAuctioneer() {
-        require(msg.sender == auctioneer, "Only auctioneer can call this function.");_;
+        require(msg.sender == seller, "Only auctioneer can call this function.");_;
     }
 
     modifier assertOnlyBidders() {
-        require(msg.sender != auctioneer, "Auctioneer is not allowed to register as a bidder");_;
+        require(msg.sender != seller, "Auctioneer is not allowed to register as a bidder");_;
     }
 
-    function getSampleString() public pure returns(string memory){
-        return "sample string from AKEB";
-    }
-
-    function registerAuctionInfo(string memory assetDescriptionInput, 
-    uint256 minBidPriceInput, uint256 minNumberOfBiddersInput) 
-    public assertOnlyAuctioneer()
+    function registerAuctionInfo(string memory assetNameInput, 
+    string memory assetDescriptionInput) public
     {
+        assetName = assetNameInput;
         assetDescription = assetDescriptionInput;
-        minBidPrice = minBidPriceInput;
-        minNumberOfBidders = minNumberOfBiddersInput;
+    }
+
+    function getAuctionInfo() public view returns(string memory, string memory) {
+        return (assetName, assetDescription);
     }
 
     function registerBidder() public {
@@ -83,22 +81,6 @@ contract AKEB {
         return winners;
     }
 
-    // function getWinner() public view returns(address, uint256, string memory) {
-    //     return (winnerAddress, winnerBid, winnerNonce);
-    // }
-
-    // function getWinnerAddress() public view returns(address) {
-    //     return winnerAddress;
-    // }
-
-    // function getWinnerBid() public view returns(uint256) {
-    //     return winnerBid;
-    // }
-
-    // function getwinnerNonce() public view returns(string memory){
-    //     return winnerNonce;
-    // }
-
     function dispute(uint256 inputDisputedBid, 
     string memory inputDisputedNonce) public {
         DisputedBidders memory disputedBidder = DisputedBidders(
@@ -114,8 +96,7 @@ contract AKEB {
         delete winners;
 
         assetDescription = "";
-        minBidPrice = 0;
-        minNumberOfBidders = 0;
+        assetName = "";
 
         resetEncodedBids();
 
