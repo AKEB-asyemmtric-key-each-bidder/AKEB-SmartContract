@@ -49,14 +49,6 @@ contract AKEB {
         bidders.push(msg.sender);
     }
 
-    function getBidderAddress(uint index) public view returns(address) {
-        return bidders[index];
-    }
-
-    function getAllBidders() public view returns(address[] memory) {
-        return bidders;
-    }
-
     function getAllDisputers() public view returns(DisputedBidders[] memory){
         return disputedBidders;
     }
@@ -64,10 +56,6 @@ contract AKEB {
     function submitEncodedBid(string memory inputEncodedBid)
     public {
         encodedBids[msg.sender] = inputEncodedBid;
-    }
-
-    function getEncodedBid(address inputAddress) public view returns(string memory){
-        return encodedBids[inputAddress];
     }
 
     function submitWinner(uint256 inputWinnerBid, 
