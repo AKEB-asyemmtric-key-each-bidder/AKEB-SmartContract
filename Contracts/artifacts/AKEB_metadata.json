@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.14+commit.80d49f37"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -108,9 +108,9 @@
 				"name": "encodedBids",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "bytes32",
 						"name": "",
-						"type": "string"
+						"type": "bytes32"
 					}
 				],
 				"stateMutability": "view",
@@ -236,9 +236,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
+						"internalType": "bytes32",
 						"name": "inputEncodedBid",
-						"type": "string"
+						"type": "bytes32"
 					}
 				],
 				"name": "submitEncodedBid",
@@ -309,7 +309,7 @@
 		"compilationTarget": {
 			"Contracts/AKEB.sol": "AKEB"
 		},
-		"evmVersion": "london",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -321,12 +321,28 @@
 		"remappings": []
 	},
 	"sources": {
-		"Contracts/AKEB.sol": {
-			"keccak256": "0xed4b6e9091fbc89a7074a37c5f46ea127a64cc727c1c1807b290c76ea6e3da50",
+		"@openzeppelin/contracts/utils/Strings.sol": {
+			"keccak256": "0xa4d1d62251f8574deb032a35fc948386a9b4de74b812d4f545a1ac120486b48a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6deafe6a78359065aceffb04e9aad3bcc7ed2aa9482422144a15f7591dc404d0",
-				"dweb:/ipfs/QmZEkiFxLgorn1Npm4LtHNZqyc1nQTdw59151q1DGPw2hr"
+				"bzz-raw://8c969013129ba9e651a20735ef659fef6d8a1139ea3607bd4b26ddea2d645634",
+				"dweb:/ipfs/QmVhVa6LGuzAcB8qgDtVHRkucn4ihj5UZr8xBLcJkP6ucb"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/Math.sol": {
+			"keccak256": "0xa1e8e83cd0087785df04ac79fb395d9f3684caeaf973d9e2c71caef723a3a5d6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://33bbf48cc069be677705037ba7520c22b1b622c23b33e1a71495f2d36549d40b",
+				"dweb:/ipfs/Qmct36zWXv3j7LZB83uwbg7TXwnZSN1fqHNDZ93GG98bGz"
+			]
+		},
+		"Contracts/AKEB.sol": {
+			"keccak256": "0x828674e8481c92b671ed415eef6c3ff181b194390851ac881bb5fa768541a1e1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1789669a6a9e97d9745f0436a3f30460fa69b19924c02584127d6042f3305b96",
+				"dweb:/ipfs/QmXqB6mLWbvACuLoynzqLPzFxy9f4Y7nYAUo7ekLDNCmU9"
 			]
 		}
 	},
