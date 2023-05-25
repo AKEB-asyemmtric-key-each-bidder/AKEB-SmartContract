@@ -45,6 +45,20 @@
 				],
 				"stateMutability": "pure",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "registerBidderTest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startAuctionTest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -56,10 +70,16 @@
 			"kind": "user",
 			"methods": {
 				"beforeAll()": {
-					"notice": "'beforeAll' runs before all other tests More special functions are: 'beforeEach', 'beforeAll', 'afterEach' & 'afterAll'"
+					"notice": "'beforeAll' runs before all other tests More special functions are: 'beforeEach', 'beforeAll', 'afterEach' & 'afterAll' #sender: account-4"
 				},
 				"checkSenderAndValue()": {
-					"notice": "Custom Transaction Context: https://remix-ide.readthedocs.io/en/latest/unittesting.html#customization #sender: account-1 #value: 100"
+					"notice": "Custom Transaction Context: https://remix-ide.readthedocs.io/en/latest/unittesting.html#customization #sender: account-2 #value: 100"
+				},
+				"registerBidderTest()": {
+					"notice": "#sender: account-0, account-1, account-2"
+				},
+				"startAuctionTest()": {
+					"notice": "#sender: account-3"
 				}
 			},
 			"version": 1
@@ -122,11 +142,11 @@
 			]
 		},
 		"tests/AKEB_test.sol": {
-			"keccak256": "0xc4932f9d61cf8b92de0ebe4e85a9ff0c00be91b06f715f0fd49264b3b5f7960e",
+			"keccak256": "0x13de2c3a240c4a9e3cd79cfe43a6d679515e0bb17ab7a1f455d46466e115ee28",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://2b3a80072308a22404df1e9439b060dbe7ca450a364bc63ab8df2609758fe16f",
-				"dweb:/ipfs/QmQh75DjjEjdWe92maBZ4P8okhF9v9F58aPPQJzSZbo2Mu"
+				"bzz-raw://8e1220e69e5f6c25f8ba3ece89174b72ff65d2ebca3ef53a6b09b8c30fbbbca8",
+				"dweb:/ipfs/QmcpWd82f77pFizHyH1BexL2TnhkBP9ZRKfXCcia2UFPwz"
 			]
 		}
 	},
