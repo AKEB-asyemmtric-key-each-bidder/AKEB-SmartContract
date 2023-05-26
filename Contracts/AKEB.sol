@@ -4,6 +4,7 @@ pragma solidity ^0.8.14;
 import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract AKEB {
+    // VARIBLES
     // Seller and auctioneer address
     address public seller;
     address public auctioneer;
@@ -43,19 +44,11 @@ contract AKEB {
 
     DisputedBidders[] public disputedBidders;
 
-    // // Modifier to assert only auctioneer perform certain actions
-    // modifier assertOnlyAuctioneer() {
-    //     require(msg.sender == seller, "Only auctioneer can call this function.");_;
-    // }
-
-    // // Modifier to assert only bidders perform certain actions
-    // modifier assertOnlyBidders() {
-    //     require(msg.sender != seller, "Auctioneer is not allowed to register as a bidder");_;
-    // }
-
     constructor(){
         auctioneer = msg.sender;
     }
+
+    // MODIFIERS
 
     modifier checkIfAuctionIsStarted() {
         require(isAuctionStarted == true, "There is no started auction now");_;
@@ -73,6 +66,13 @@ contract AKEB {
     modifier onlyBidders(){
         require(isBidder() == true, "Only registerd bidder can call this function");_;
     }
+
+    modifier onlyAuctioneer(){
+        require(msg.sender == auctioneer, "Only auctioneer can call this function");_;
+    }
+
+
+
 
     function setUpPhasesTimePeriods() private {
         // register phase period is 1 min
@@ -196,6 +196,42 @@ contract AKEB {
         disputedBidders.push(disputedBidder);
     }
 
+    // This function is for reseting all variables for the next auction round
+    function reset() 
+    onlyAuctioneer()
+    public {
+        require(block.timestamp > winnerAndDisputeSubmissionPeriod, "Auction is not completed yet.");
+
+        delete winners;
+
+        assetDescription = "";
+        assetName = "";
+
+        resetEncodedBids();
+
+        delete bidders;
+
+        delete disputedBidders;
+
+        isAuctionStarted = false;
+    }
+
+    // This function is for reseting encodedBids varibale
+    function resetEncodedBids()
+    onlyAuctioneer() 
+    public {
+        require(block.timestamp > winnerAndDisputeSubmissionPeriod, "Auction is not completed yet.");
+        for (uint256 i = 0 ; i < bidders.length; i +=1){
+            address bidderAddress = bidders[i];
+            delete encodedBids[bidderAddress];
+        }
+    }
+
+
+
+    // INTERNAL FUNCTIONS
+
+
     function clearWinners() 
     private {
         delete winners;
@@ -227,34 +263,5 @@ contract AKEB {
         string memory bidInString = Strings.toString(bid);
         string memory bidAndNonceConcatenation = string.concat(bidInString, nonce);
         return sha256(abi.encodePacked(bidAndNonceConcatenation));
-    }
-
-    // This function is for reseting all variables for the next auction round
-    function reset() 
-    public {
-        require(block.timestamp > winnerAndDisputeSubmissionPeriod, "Auction is not completed yet.");
-
-        delete winners;
-
-        assetDescription = "";
-        assetName = "";
-
-        resetEncodedBids();
-
-        delete bidders;
-
-        delete disputedBidders;
-
-        isAuctionStarted = false;
-    }
-
-    // This function is for reseting encodedBids varibale
-    function resetEncodedBids() 
-    public {
-        require(block.timestamp > winnerAndDisputeSubmissionPeriod, "Auction is not completed yet.");
-        for (uint256 i = 0 ; i < bidders.length; i +=1){
-            address bidderAddress = bidders[i];
-            delete encodedBids[bidderAddress];
-        }
     }
 }
