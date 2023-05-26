@@ -7,6 +7,11 @@
 		"abi": [
 			{
 				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
 				"name": "assetDescription",
 				"outputs": [
 					{
@@ -26,6 +31,19 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "auctioneer",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -197,6 +215,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getBidders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "assetNameInput",
 						"type": "string"
@@ -231,6 +268,19 @@
 				"name": "resetEncodedBids",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "seller",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -338,11 +388,11 @@
 			]
 		},
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x828674e8481c92b671ed415eef6c3ff181b194390851ac881bb5fa768541a1e1",
+			"keccak256": "0x0a385ee4c116300c9f9f2c455d1b7233ef485564d228695ebba6d72810b97446",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1789669a6a9e97d9745f0436a3f30460fa69b19924c02584127d6042f3305b96",
-				"dweb:/ipfs/QmXqB6mLWbvACuLoynzqLPzFxy9f4Y7nYAUo7ekLDNCmU9"
+				"bzz-raw://7d09dbc860ac208dcf5cfa299b1a10ec6b365470edc6ef7937bf5c3e788301af",
+				"dweb:/ipfs/QmR3auWMxypek2uDMQ4TWM8KQ4XL5ezQmghogKXQhqeQET"
 			]
 		}
 	},

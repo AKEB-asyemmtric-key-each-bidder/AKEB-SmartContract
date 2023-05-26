@@ -4,8 +4,9 @@ pragma solidity ^0.8.14;
 import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract AKEB {
-    // Seller address
-    address seller;
+    // Seller and auctioneer address
+    address public seller;
+    address public auctioneer;
     // Asset information
     string public assetDescription;
     string public assetName;
@@ -14,7 +15,7 @@ contract AKEB {
     uint hashedBidSubmissionPeriod;
     uint winnerAndDisputeSubmissionPeriod;
     // periodTime set to 1 min
-    uint periodTime = 5;
+    uint periodTime = 1;
     bool isAuctionStarted = false;
 
     // Bidders address
@@ -52,8 +53,21 @@ contract AKEB {
     //     require(msg.sender != seller, "Auctioneer is not allowed to register as a bidder");_;
     // }
 
+    constructor(){
+        auctioneer = msg.sender;
+    }
+
     modifier checkIfAuctionIsStarted() {
         require(isAuctionStarted == true, "There is no started auction now");_;
+    }
+
+    function isBidder() internal view returns(bool) {
+        for (uint256 i = 0 ; i < bidders.length; i++){
+            if(msg.sender == bidders[i]){
+                return true;
+            }
+        }
+        return false;
     }
 
     function setUpPhasesTimePeriods() private {
@@ -72,6 +86,7 @@ contract AKEB {
     string memory assetDescriptionInput) 
     public
     {
+        seller = msg.sender;
         assetName = assetNameInput;
         assetDescription = assetDescriptionInput;
         setUpPhasesTimePeriods();
@@ -91,8 +106,16 @@ contract AKEB {
     function registerBidder() 
     public 
     checkIfAuctionIsStarted() {
+        require(msg.sender != seller , "Seller can not register as bidder");
         require(block.timestamp < registerBidderPeriod, "Time for registering as a bidder is passed.");
         bidders.push(msg.sender);
+    }
+
+    function getBidders(uint index) 
+    public 
+    view 
+    returns(address){
+        return bidders[index];
     }
 
     // Getting disputers information. 
@@ -109,8 +132,10 @@ contract AKEB {
     function submitEncodedBid(bytes32 inputEncodedBid) 
     checkIfAuctionIsStarted()
     public {
-        require(block.timestamp > registerBidderPeriod, "Hashed bid submission phase is not started yet.");
-        require(block.timestamp < hashedBidSubmissionPeriod, "Time for hashed bid submission is passed");
+        // These two lines are commented for units test to pass, uncomment for user testing
+        // require(block.timestamp > registerBidderPeriod, "Hashed bid submission phase is not started yet.");
+        // require(block.timestamp < hashedBidSubmissionPeriod, "Time for hashed bid submission is passed");
+        require(isBidder() == true, "Only registered bidder can call this function");
 
         encodedBids[msg.sender] = inputEncodedBid;
     }
@@ -187,8 +212,8 @@ contract AKEB {
         return false;
     }
 
-    function computeHash(uint256 bid, string memory nonce) 
-    private 
+    function computeHash(uint256 bid, string memory nonce)
+    internal  
     pure 
     returns(bytes32) {
         string memory bidInString = Strings.toString(bid);

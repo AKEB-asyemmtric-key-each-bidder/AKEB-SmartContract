@@ -12,95 +12,146 @@ import "remix_accounts.sol";
 import "../Contracts/AKEB.sol";
 
 // File name has to end with '_test.sol', this file can contain more than one testSuite contracts
-contract testSuite {
-    AKEB testContract;
-    string assetName = "watch";
-    string assetDescription = "Great watch";
+contract testSuite is AKEB {
+    address bidder1;
+    uint256 bid1;
+    string nonce1;
+    bytes32 hash1;
 
-    // Account 0 (bidder 1): 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
-    // Account 1 (bidder 2): 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
-    // Account 2 (bidder 3): 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
-    // Account 3 (seller): 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
-    // Account 4 (auctioneer): 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+    address bidder2;
+    uint256 bid2;
+    string nonce2;
+    bytes32 hash2;
 
-    /// 'beforeAll' runs before all other tests
-    /// More special functions are: 'beforeEach', 'beforeAll', 'afterEach' & 'afterAll'
-    /// #sender: account-4
-    function beforeAll() public {
-        // <instantiate contract>
-        Assert.equal(
-            msg.sender, 
-        TestsAccounts.getAccount(4), 
-        "Only auctioneer can deploy the smart contact");
-        testContract = new AKEB();
-        
-    }
+    address bidder3;
+    uint256 bid3;
+    string nonce3;
+    bytes32 hash3;
 
-    /// #sender: account-3
-    function startAuctionTest() public {
-        Assert.equal(msg.sender, TestsAccounts.getAccount(3), "Only seller can call this function");
-        
-        testContract.registerAuctionInfo(assetName, assetDescription);
-        Assert.ok(
-            sha256(abi.encodePacked(testContract.assetName())) == 
-            sha256(abi.encodePacked(assetName)) , 
-            "the name of asset is not correctly stored");
-
-        Assert.ok(
-            sha256(abi.encodePacked(testContract.assetDescription())) == 
-            sha256(abi.encodePacked(assetDescription)) , 
-            "the description of asset is not correctly stored"
-        );
-    }
     
-    /// #sender: account-0
-    function registerBidder0Test() public {
-        Assert.ok(
-            msg.sender == TestsAccounts.getAccount(0)
-            , "Only accounts 0 can call this function");
-        testContract.registerBidder();
+    function beforeAll() public {
+        // auctioneer is address 0
+        // seller is address 1
+        bidder1 = TestsAccounts.getAccount(2); 
+        bidder2 = TestsAccounts.getAccount(3);
+        bidder3 = TestsAccounts.getAccount(4);
+
+        bid1 = 11;
+        nonce1 = "bid1";
+        hash1 = 0x5647b2fc56179a52d9885e3188a4624e65f45772d1dc4ce067b8380d04a39977;
+
+        bid2 = 22;
+        nonce2 = "bid2";
+        hash2 = 0x50c3208089b13dbbf91f80db31299cf2b996a7d2e671b5f49c6d513a89f63df1;
+
+        bid3 = 33;
+        nonce3 = "bid3";
+        hash3 = 0xcec60b8bf0259b4ebd98f5b55fd70f78622e0623b1fff9f4e88c4cedcdbc0f5f;
     }
 
     /// #sender: account-1
-    function registerBidder1Test() public {
-        Assert.ok(
-            msg.sender == TestsAccounts.getAccount(1)
-            , "Only accounts 1 can call this function");
-        testContract.registerBidder();
-    }
-
-    /// #sender: account-2
-    function registerBidder2Test() public {
-        Assert.ok(
-            msg.sender == TestsAccounts.getAccount(2)
-            , "Only accounts 2 can call this function");
-        testContract.registerBidder();
-    }
-
-    function checkSuccess() public {
-        // Use 'Assert' methods: https://remix-ide.readthedocs.io/en/latest/assert_library.html
-        Assert.ok(2 == 2, 'should be true');
-        Assert.greaterThan(uint(2), uint(1), "2 should be greater than to 1");
-        Assert.lesserThan(uint(2), uint(3), "2 should be lesser than to 3");
-    }
-
-    function checkSuccess2() public pure returns (bool) {
-        // Use the return value (true or false) to test the contract
-        return true;
-    }
-    
-    function checkFailure() public {
-        Assert.notEqual(uint(1), uint(2), "1 should not be equal to 1");
-    }
-
-    /// Custom Transaction Context: https://remix-ide.readthedocs.io/en/latest/unittesting.html#customization
-    /// #sender: account-2
-    /// #value: 100
-    function checkSenderAndValue() public payable {
-        // account index varies 0-9, value is in wei
+    function startAuction() public {
+        registerAuctionInfo("watch", "great watch");
         
-        Assert.equal(msg.sender, TestsAccounts.getAccount(2), "Invalid sender");
-        Assert.equal(msg.value, 100, "Invalid value");
+        Assert.ok(
+            sha256(abi.encodePacked(assetName)) == 
+            sha256(abi.encodePacked("watch")) , 
+            "the name of asset is not correctly stored");
+
+        Assert.ok(
+            sha256(abi.encodePacked(assetDescription)) == 
+            sha256(abi.encodePacked("great watch")) , 
+            "the description of asset is not correctly stored"
+        );
+
+        // Assert.equal(Received, Expected, ...)
+        Assert.equal(TestsAccounts.getAccount(1), 
+        seller, 
+        "address of seller is incorrect.");
+
+        Assert.equal(isAuctionStarted, true, "Auction should be started");
     }
+
+    /// #sender: account-2
+    function checkRegisterBidder1() public {
+        registerBidder();
+
+        Assert.equal(
+            TestsAccounts.getAccount(2),
+            bidders[0],
+            "bidder 0 is not registered."
+        );
+    }
+
+    /// #sender: account-3
+    function checkRegisterBidder2() public {
+        registerBidder();
+
+        Assert.equal(
+            TestsAccounts.getAccount(3),
+            bidders[1],
+            "bidder 1 is not registered."
+        );
+    }
+
+    /// #sender: account-4
+    function checkRegisterBidder3() public {
+        registerBidder();
+
+        Assert.equal(
+            TestsAccounts.getAccount(4),
+            bidders[2],
+            "bidder 2 is not registered."
+        );
+    }
+
+    /// #sender: account-2
+    function checkBidder1HashedBidSubmission() public {
+        Assert.equal(
+            computeHash(bid1, nonce1),
+            hash1,
+            "hash1 is not correct"
+        );
+
+        submitEncodedBid(hash1);
+        Assert.equal(
+            hash1,
+            encodedBids[msg.sender],
+            "hash1 of bidder 1 is not submitted"
+        );
+    }
+
+    /// #sender: account-3
+    function checkBidder2HashedBidSubmission() public {
+        Assert.equal(
+            computeHash(bid2, nonce2),
+            hash2,
+            "hash2 is not correct"
+        );
+
+        submitEncodedBid(hash2);
+        Assert.equal(
+            hash2,
+            encodedBids[msg.sender],
+            "hash2 of bidder 2 is not submitted"
+        );
+    }
+
+    /// #sender: account-4 
+    function checkBidder3HashedBidSubmission() public {
+        Assert.equal(
+            computeHash(bid3, nonce3),
+            hash3,
+            "hash3 is not correct"
+        );
+
+        submitEncodedBid(hash3);
+        Assert.equal(
+            hash3,
+            encodedBids[msg.sender],
+            "hash3 of bidder 3 is not submitted"
+        );
+    }
+
 }
     

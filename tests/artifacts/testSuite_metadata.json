@@ -7,57 +7,391 @@
 		"abi": [
 			{
 				"inputs": [],
+				"name": "assetDescription",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "assetName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "auctioneer",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "beforeAll",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "checkFailure",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "checkSenderAndValue",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "checkSuccess",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "checkSuccess2",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "bool",
+						"internalType": "uint256",
 						"name": "",
-						"type": "bool"
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "pure",
+				"name": "bidders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "registerBidderTest",
+				"name": "checkBidder1HashedBidSubmission",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "startAuctionTest",
+				"name": "checkBidder2HashedBidSubmission",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkBidder3HashedBidSubmission",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkRegisterBidder1",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkRegisterBidder2",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkRegisterBidder3",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "inputDisputedBid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "inputDisputedNonce",
+						"type": "string"
+					}
+				],
+				"name": "dispute",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "disputedBidders",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "bid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "disputeAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "nonce",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "encodedBids",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllDisputers",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "bid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "disputeAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nonce",
+								"type": "string"
+							}
+						],
+						"internalType": "struct AKEB.DisputedBidders[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllWinners",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "winnerAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "nonce",
+								"type": "string"
+							}
+						],
+						"internalType": "struct AKEB.winner[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAuctionInfo",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getBidders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "assetNameInput",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "assetDescriptionInput",
+						"type": "string"
+					}
+				],
+				"name": "registerAuctionInfo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "registerBidder",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "reset",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "resetEncodedBids",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "seller",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "inputEncodedBid",
+						"type": "bytes32"
+					}
+				],
+				"name": "submitEncodedBid",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "inputWinnerBid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "inputwinnerNonce",
+						"type": "string"
+					}
+				],
+				"name": "submitWinner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "winners",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "winnerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "nonce",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -69,17 +403,26 @@
 		"userdoc": {
 			"kind": "user",
 			"methods": {
-				"beforeAll()": {
-					"notice": "'beforeAll' runs before all other tests More special functions are: 'beforeEach', 'beforeAll', 'afterEach' & 'afterAll' #sender: account-4"
+				"checkBidder1HashedBidSubmission()": {
+					"notice": "#sender: account-2"
 				},
-				"checkSenderAndValue()": {
-					"notice": "Custom Transaction Context: https://remix-ide.readthedocs.io/en/latest/unittesting.html#customization #sender: account-2 #value: 100"
-				},
-				"registerBidderTest()": {
-					"notice": "#sender: account-0, account-1, account-2"
-				},
-				"startAuctionTest()": {
+				"checkBidder2HashedBidSubmission()": {
 					"notice": "#sender: account-3"
+				},
+				"checkBidder3HashedBidSubmission()": {
+					"notice": "#sender: account-4"
+				},
+				"checkRegisterBidder1()": {
+					"notice": "#sender: account-2"
+				},
+				"checkRegisterBidder2()": {
+					"notice": "#sender: account-3"
+				},
+				"checkRegisterBidder3()": {
+					"notice": "#sender: account-4"
+				},
+				"startAuction()": {
+					"notice": "#sender: account-1"
 				}
 			},
 			"version": 1
@@ -118,11 +461,11 @@
 			]
 		},
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x828674e8481c92b671ed415eef6c3ff181b194390851ac881bb5fa768541a1e1",
+			"keccak256": "0x0a385ee4c116300c9f9f2c455d1b7233ef485564d228695ebba6d72810b97446",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1789669a6a9e97d9745f0436a3f30460fa69b19924c02584127d6042f3305b96",
-				"dweb:/ipfs/QmXqB6mLWbvACuLoynzqLPzFxy9f4Y7nYAUo7ekLDNCmU9"
+				"bzz-raw://7d09dbc860ac208dcf5cfa299b1a10ec6b365470edc6ef7937bf5c3e788301af",
+				"dweb:/ipfs/QmR3auWMxypek2uDMQ4TWM8KQ4XL5ezQmghogKXQhqeQET"
 			]
 		},
 		"remix_accounts.sol": {
@@ -142,11 +485,11 @@
 			]
 		},
 		"tests/AKEB_test.sol": {
-			"keccak256": "0x13de2c3a240c4a9e3cd79cfe43a6d679515e0bb17ab7a1f455d46466e115ee28",
+			"keccak256": "0x19c9b4ed3182806f5cf096e56cb988fc009ee53ea004ad33cd1185ab49f82d80",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8e1220e69e5f6c25f8ba3ece89174b72ff65d2ebca3ef53a6b09b8c30fbbbca8",
-				"dweb:/ipfs/QmcpWd82f77pFizHyH1BexL2TnhkBP9ZRKfXCcia2UFPwz"
+				"bzz-raw://963e26f56228025988a90d7b8ccf02d4dafb76504442fa5bea58a1401a9392e8",
+				"dweb:/ipfs/QmdnVocjZ75qFNHsgqj4zEXCo58hAJFvTMenFve85YiUAo"
 			]
 		}
 	},
