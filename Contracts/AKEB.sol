@@ -72,7 +72,7 @@ contract AKEB {
     }
 
 
-
+    // FUNCTIONS
 
     function setUpPhasesTimePeriods() private {
         // register phase period is 1 min
@@ -97,15 +97,6 @@ contract AKEB {
         isAuctionStarted = true;
     }
 
-    // Returning auction information
-    function getAuctionInfo() 
-    public 
-    view 
-    checkIfAuctionIsStarted() 
-    returns(string memory, string memory) {
-        return (assetName, assetDescription);
-    }
-
     // Registering bidder address into bidders array
     function registerBidder() 
     public 
@@ -113,23 +104,6 @@ contract AKEB {
         require(msg.sender != seller , "Seller can not register as bidder");
         require(block.timestamp < registerBidderPeriod, "Time for registering as a bidder is passed.");
         bidders.push(msg.sender);
-    }
-
-    function getBidders(uint index) 
-    public 
-    view 
-    returns(address){
-        return bidders[index];
-    }
-
-    // Getting disputers information. 
-    // This information includes : 1.Disputer bid 2.Disputer nonce 3.Disputer address
-    function getAllDisputers() 
-    checkIfAuctionIsStarted() 
-    public 
-    view 
-    returns(DisputedBidders[] memory){
-        return disputedBidders;
     }
 
     // Bidders submit their encoded (Hashed or encrypted with private key) bid
@@ -157,15 +131,6 @@ contract AKEB {
         winner memory temp = winner(msg.sender, inputWinnerBid, inputwinnerNonce);
 
         winners.push(temp);
-    }
-
-    // Returning all the winners' info including address, bid, and nonce
-    function getAllWinners() 
-    checkIfAuctionIsStarted()
-    public 
-    view 
-    returns(winner[] memory) {
-        return winners;
     }
 
     // Bidder calls dispute and reveal her secret bid and nonce

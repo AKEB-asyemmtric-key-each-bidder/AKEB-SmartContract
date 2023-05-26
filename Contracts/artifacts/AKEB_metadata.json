@@ -135,103 +135,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getAllDisputers",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "bid",
-								"type": "uint256"
-							},
-							{
-								"internalType": "address",
-								"name": "disputeAddress",
-								"type": "address"
-							},
-							{
-								"internalType": "string",
-								"name": "nonce",
-								"type": "string"
-							}
-						],
-						"internalType": "struct AKEB.DisputedBidders[]",
-						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getAllWinners",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "address",
-								"name": "winnerAddress",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "bid",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "nonce",
-								"type": "string"
-							}
-						],
-						"internalType": "struct AKEB.winner[]",
-						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getAuctionInfo",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "index",
-						"type": "uint256"
-					}
-				],
-				"name": "getBidders",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -388,11 +291,11 @@
 			]
 		},
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x7ae4b02f81da2ff69f7d201f0a2d7b06ae883c0a2867e4b68c73962caf383819",
+			"keccak256": "0xa666ce62f1f0af43db31214569dc31b5f966554a45c5877aaaa064074fa14b97",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://69b7984fdbdb9f1da4dd340032e29e2a3589b808f0ef4780f9fa1fd8f1f2dcbb",
-				"dweb:/ipfs/QmXAj3BAFEATz1RRoBxc6WKuPCRWMgh69Z3idbRbuFuBiJ"
+				"bzz-raw://e732fa591b7dd8f2355906aea0582f06375a9a6d4f6a56e08cfcb9e5a9c6797e",
+				"dweb:/ipfs/QmbT3sqmnEcWFmhrfcZCBibtMF9pXBQZFqfRypPVP8apmw"
 			]
 		}
 	},
