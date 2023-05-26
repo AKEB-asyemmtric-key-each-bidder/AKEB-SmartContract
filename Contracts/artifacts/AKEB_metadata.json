@@ -388,11 +388,11 @@
 			]
 		},
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x0a385ee4c116300c9f9f2c455d1b7233ef485564d228695ebba6d72810b97446",
+			"keccak256": "0x50a77a9d38b2d982fe8002c9898e1f135ba66a1f5d3e7cbbbe523dc53c13a9b9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7d09dbc860ac208dcf5cfa299b1a10ec6b365470edc6ef7937bf5c3e788301af",
-				"dweb:/ipfs/QmR3auWMxypek2uDMQ4TWM8KQ4XL5ezQmghogKXQhqeQET"
+				"bzz-raw://35e0ac027608f6a98184324347ca588d19e8a911a8315957f6a3dc6dd6e7afe1",
+				"dweb:/ipfs/QmUGHkY75aKckwmn4BD35uhs16cwn4xYU5grZNVNRjMcVH"
 			]
 		}
 	},

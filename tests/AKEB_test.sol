@@ -153,5 +153,28 @@ contract testSuite is AKEB {
         );
     }
 
+    // Here, bidder 2 incorrectly submits her info as the winner
+    /// #sender: account-3
+    function checkBidder2AsIncorrectWinner() public {
+        submitWinner(bid2, nonce2);
+
+        Assert.equal(
+            msg.sender,
+            winners[0].winnerAddress,
+            "bidder 2 is not set as incorrect winner"
+        );
+    }
+
+    /// #sender: account-4
+    function checkBidder3CorrectlyDisputes() public {
+        dispute(bid3, nonce3);
+
+        Assert.equal(
+            msg.sender, 
+            winners[0].winnerAddress,
+            "winner is not changed to bidder3"
+        );
+    }
+
 }
     

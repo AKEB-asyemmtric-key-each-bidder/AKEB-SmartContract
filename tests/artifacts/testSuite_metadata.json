@@ -79,7 +79,21 @@
 			},
 			{
 				"inputs": [],
+				"name": "checkBidder2AsIncorrectWinner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "checkBidder2HashedBidSubmission",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkBidder3CorrectlyDisputes",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -406,11 +420,17 @@
 				"checkBidder1HashedBidSubmission()": {
 					"notice": "#sender: account-2"
 				},
+				"checkBidder2AsIncorrectWinner()": {
+					"notice": "#sender: account-3"
+				},
 				"checkBidder2HashedBidSubmission()": {
 					"notice": "#sender: account-3"
 				},
-				"checkBidder3HashedBidSubmission()": {
+				"checkBidder3CorrectlyDisputes()": {
 					"notice": "#sender: account-4"
+				},
+				"checkBidder3HashedBidSubmission()": {
+					"notice": "#sender: account-4 "
 				},
 				"checkRegisterBidder1()": {
 					"notice": "#sender: account-2"
@@ -461,11 +481,11 @@
 			]
 		},
 		"Contracts/AKEB.sol": {
-			"keccak256": "0x0a385ee4c116300c9f9f2c455d1b7233ef485564d228695ebba6d72810b97446",
+			"keccak256": "0x50a77a9d38b2d982fe8002c9898e1f135ba66a1f5d3e7cbbbe523dc53c13a9b9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7d09dbc860ac208dcf5cfa299b1a10ec6b365470edc6ef7937bf5c3e788301af",
-				"dweb:/ipfs/QmR3auWMxypek2uDMQ4TWM8KQ4XL5ezQmghogKXQhqeQET"
+				"bzz-raw://35e0ac027608f6a98184324347ca588d19e8a911a8315957f6a3dc6dd6e7afe1",
+				"dweb:/ipfs/QmUGHkY75aKckwmn4BD35uhs16cwn4xYU5grZNVNRjMcVH"
 			]
 		},
 		"remix_accounts.sol": {
@@ -485,11 +505,11 @@
 			]
 		},
 		"tests/AKEB_test.sol": {
-			"keccak256": "0x19c9b4ed3182806f5cf096e56cb988fc009ee53ea004ad33cd1185ab49f82d80",
+			"keccak256": "0xf46a2774984064e62c15fad239034295730a3586241140cfcd66239cd5cae502",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://963e26f56228025988a90d7b8ccf02d4dafb76504442fa5bea58a1401a9392e8",
-				"dweb:/ipfs/QmdnVocjZ75qFNHsgqj4zEXCo58hAJFvTMenFve85YiUAo"
+				"bzz-raw://0cd8ace34897f24760e01fc2d52384472cf583f7d7a97776b969d9b760d95c9b",
+				"dweb:/ipfs/QmWs6GG51Wkue2N5SBHJ2drBoBioL2M48RzbhgwLhi9nwS"
 			]
 		}
 	},
